@@ -5,4 +5,4 @@ services:
     volumes:
       - ./src/main/php/:/var/www/html:ro
     ports:
-      - "80:80"
+      - "8080:80"
