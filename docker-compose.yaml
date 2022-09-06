@@ -6,3 +6,12 @@ services:
       - ./src/main/php/:/var/www/html:ro
     ports:
       - "8080:80"
+  db:
+    image: mysql:latest
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=bazafilmy
+    volumes:
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - "3306:3306"
